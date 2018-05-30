@@ -1,7 +1,36 @@
 <html>
     <head>
 
-    
+       <style>
+    body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+  #Estacionamiento{
+   top:64px !important;
+  }
+  #camaras{
+    top:64px !important; 
+  }
+  #Registro{
+    top:64px !important;
+  }
+  #personal{
+    top:64px !important;
+  }
+  #residentes{
+    top:64px !important;
+  }
+  
+  #c{display:none;}
+
+  
+      </style>
  
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -52,7 +81,7 @@
 <ul id="personal" class="dropdown-content">
  <li><a href="<?php base_url();?>Registrar">registrar</a></li>
  <li class="divider"></li>
- <li><a href="#!">Guardias</a></li>
+ <li><a href="<?php base_url();?>mostrarpersonal">personal</a></li>
  <li class="divider"></li>
 
 </ul>

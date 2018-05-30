@@ -48,6 +48,14 @@ class Welcome extends CI_Controller {
 		$this->load->view('templateAd/footer');
 	}
 
+	public function mostrarpersonal()
+	{
+		$this->load->view('templateAd/header');
+		$this->load->view('admin/personal');
+		$this->load->view('templateAd/footer');
+	}
+
+
 
 	 public function login()
 	{

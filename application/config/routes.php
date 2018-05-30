@@ -53,9 +53,17 @@ $route['default_controller'] = 'welcome';
 $route['login'] = 'Welcome/login';
 
 // admin
+$route['personal'] = 'Administrador/personal';
+$route['condominios'] = 'Administrador/condominios';
+$route['registrarPersonal'] = 'Administrador/registrarPersonal';
+
+
+// vistas 
 $route['adminIndex'] = 'welcome/adminIndex';
 $route['camaraVivo'] = 'welcome/camaraVivo';
 $route['Registrar'] = 'welcome/Registrar';
+$route['mostrarpersonal'] = 'Welcome/mostrarpersonal';
+
 
 // guardia
 
