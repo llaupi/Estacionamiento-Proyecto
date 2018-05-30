@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+  #Estacionamiento{
+   top:64px !important;
+  }
+  #camaras{
+    top:64px !important; 
+  }
+  #Registro{
+    top:64px !important;
+  }
+  #personal{
+    top:64px !important;
+  }
+  #residentes{
+    top:64px !important;
+  }
+  
+  #c{display:none;}
