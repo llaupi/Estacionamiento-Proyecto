@@ -31,9 +31,22 @@ class Welcome extends CI_Controller {
 	}
 	public function adminIndex()
 	{
-		$this->load->view('templateAd/header');
-		$this->load->view('admin/index');
-		$this->load->view('templateAd/footer');
+		if ($this->session->userdata("administrador")) 
+		{
+				$this->load->view('templateAd/header');
+				$this->load->view('admin/index');
+				$this->load->view('templateAd/footer');
+		}else{
+			redirect("index");
+		}
+	
+	}
+
+	public function guardiaIndex()
+	{
+		$this->load->view("TemplateGu/header");
+		$this->load->view("guardia/indexGuardia");
+		$this->load->view("TemplateGu/footer");
 	}
 	public function camaraVivo()
 	{
@@ -65,15 +78,25 @@ class Welcome extends CI_Controller {
 		$arrayuser = $this->Usuario->login1($rut,md5($clave));
 		if (count($arrayuser)>0) {
 			if ($arrayuser[0]->tipo==0) {
+				// creando session para el admin
+				$this->session->set_userdata("administrador",$arrayuser);
 
 				echo json_encode(array("msg"=>"administrador"));
 			} else {
+				// session para el guardia
+				$this->session->set_userdata("guardia",$arrayuser);
 				echo json_encode(array("msg"=>"guardia"));
 			}
 			
 		}else{
 			echo json_encode(array("msg"=>"usuario no encontrado"));
 		}
+	}
+
+	public function logout()
+	{
+		$this->session->session_destroy();
+		redirect('index');
 	}
 
 

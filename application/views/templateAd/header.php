@@ -1,36 +1,6 @@
 <html>
     <head>
 
-       <style>
-    body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1 0 auto;
-  }
-  #Estacionamiento{
-   top:64px !important;
-  }
-  #camaras{
-    top:64px !important; 
-  }
-  #Registro{
-    top:64px !important;
-  }
-  #personal{
-    top:64px !important;
-  }
-  #residentes{
-    top:64px !important;
-  }
-  
-  #c{display:none;}
-
-  
-      </style>
  
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -95,7 +65,7 @@
 
 <!-- Dropdown item fin -->
 <nav>
- <div class="nav-wrapper  black">
+ <div class="nav-wrapper" style="background-color:#080E40">
   
    <ul class="center hide-on-med-and-down ">
    <li><a class="dropdown-button " href="#!" data-activates="Estacionamiento">Estacionamiento<i class="material-icons right">arrow_drop_down</i></a></li>

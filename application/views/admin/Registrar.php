@@ -1,8 +1,9 @@
 <!-- Modal Structure -->
-<div class="container ">
-<h4 class="center-align">registrar</h4>
-		<div class="row">
-			<form  class="col s12">
+<div class="row ">
+
+		<div class="col s8 offset-l2">
+			<form  class="card-panel black-text">
+			<h4 class="center-align">registrar</h4>
 				<div class="row">
 					<div class="input-field col s6">
 						<i class="material-icons prefix">account_circle</i>
@@ -52,8 +53,9 @@
 						</select>
 						<label>Condominio</label>
 					</div>
+					<a id="btn_registrar" class="waves-effect waves-light btn right " style="background-color:#080E40">agregar</a>
 				</div>
-				<a id="btn_registrar" class="waves-effect waves-light btn right blue">agregar</a>
+				
 			</form>
 		</div>
 </div>

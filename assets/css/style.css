@@ -22,5 +22,9 @@ body {
   #residentes{
     top:64px !important;
   }
+  #bt_login{
+    width:200px;
+    height:40px;
+    }
   
   #c{display:none;}

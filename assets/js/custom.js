@@ -1,9 +1,9 @@
 $(function () {
 	$(document).ready(function () {
 		$('.modal').modal();
-    $('select').material_select();
-    cargarCondominio("#condominio_reg");
-   
+		$('select').material_select();
+		cargarCondominio("#condominio_reg");
+
 
 	});
 	var base_url = "http://localhost/Estacionamiento-Proyecto/";
@@ -30,6 +30,9 @@ $(function () {
 					Materialize.toast(o.msg, "4000");
 					if (o.msg == "administrador") {
 						window.location = "adminIndex"
+					}
+					if (o.msg == "guardia") {
+						window.location = "guardiaIndex"
 					}
 
 
@@ -68,70 +71,70 @@ $(function () {
 		});
 	}
 
-  // =================== fin personal =================================
-  // =================== cargar condominios ===========================
-  function cargarCondominio(){
-    var url = base_url+"condominios";
-    $.getJSON(url,function(result){
-     $.each(result,function(i,o){
-				$("#condominio_reg").append(new Option(o.nombre,o.rut));
+	// =================== fin personal =================================
+	// =================== cargar condominios ===========================
+	function cargarCondominio() {
+		var url = base_url + "condominios";
+		$.getJSON(url, function (result) {
+			$.each(result, function (i, o) {
+				$("#condominio_reg").append(new Option(o.nombre, o.rut));
 				$('select').material_select();
-       
-   });
-    });
 
-  }
+			});
+		});
+
+	}
 	// =======================       fin Condominios      ==========================
 	// ====================== registrar   ========================================
-$("#btn_registrar").click(function(e){
+	$("#btn_registrar").click(function (e) {
 
-	var rut =$("#rut_registrar").val();
-	var nombre =$("#nombre_registrar").val();
-	var apellido =$("#apellido_registrar").val();
-	var direccion =$("#direccion_registrar").val();
-	var clave =$("#clave_registrar").val();
-	var confirmarclave =$("#confirmaclave_registrar").val();
-	var tipo =$("#tipo_registrar").val();
-	var condominio =$("#condominio_reg").val();
-if (rut=="" || nombre=="" || apellido=="" || clave =="" || confirmarclave=="" ||tipo==""||condominio=="" ) {
-	Materialize.toast("complete los campos","4000")
+		var rut = $("#rut_registrar").val();
+		var nombre = $("#nombre_registrar").val();
+		var apellido = $("#apellido_registrar").val();
+		var direccion = $("#direccion_registrar").val();
+		var clave = $("#clave_registrar").val();
+		var confirmarclave = $("#confirmaclave_registrar").val();
+		var tipo = $("#tipo_registrar").val();
+		var condominio = $("#condominio_reg").val();
+		if (rut == "" || nombre == "" || apellido == "" || clave == "" || confirmarclave == "" || tipo == "" || condominio == "") {
+			Materialize.toast("complete los campos", "4000")
 
-} else {
-	if (clave==confirmarclave) {
+		} else {
+			if (clave == confirmarclave) {
 
-			$.ajax({
-			url: base_url+"registrarPersonal",
-			type: 'post',
-			dataType:'json',
-			data:{
-				rut: rut,
-				nombre:nombre,
-				apellido:apellido,
-				direccion:direccion,
-				clave:clave,
-				tipo:tipo,
-				condominio:condominio,
-			},
-			
-			success: function(o){
-				Materialize.toast(o.msg,"4000");
-			},
-			error: function(){
-				Materialize.toast("error 500","40000");
+				$.ajax({
+					url: base_url + "registrarPersonal",
+					type: 'post',
+					dataType: 'json',
+					data: {
+						rut: rut,
+						nombre: nombre,
+						apellido: apellido,
+						direccion: direccion,
+						clave: clave,
+						tipo: tipo,
+						condominio: condominio,
+					},
+
+					success: function (o) {
+						Materialize.toast(o.msg, "4000");
+					},
+					error: function () {
+						Materialize.toast("error 500", "40000");
+					}
+				});
+
+			} else {
+				Materialize.toast("claves no igual", "4000");
 			}
-		});
-	
-	} else {
-		Materialize.toast("claves no igual","4000");
-	}
-	
-}
-	
-	
-	
 
-});
+		}
 
-//==================================================================
+
+
+
+	});
+
+	//==================================================================
 
 });
